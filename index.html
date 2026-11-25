@@ -3,77 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dadaab Digital Opportunity Hub provides digital skills, computer training, internet access, and technology opportunities.">
-  <title>Dadaab Digital Opportunity Hub</title>
+  <meta name="description" content="A simple to-do list for keeping track of your learning and community goals.">
+  <meta name="theme-color" content="#183a63">
+  <title>My To-Do List | Dadaab Digital Opportunity Hub</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#top">Dadaab Digital Hub</a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
-        Menu
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#programmes">Programs</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+    <a class="brand" href="#main">Dadaab <span>Digital Opportunity Hub</span></a>
+    <p class="header-note">A little progress every day adds up.</p>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-content">
-        <p class="eyebrow">Learn • Connect • Grow</p>
-        <h1>Digital skills for a better future</h1>
-        <p>Empowering youth and the community in Dadaab through computer training, internet access, and technology opportunities.</p>
-        <a class="button" href="#programmes">Explore our programs</a>
-      </div>
+  <main class="app-shell" id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Learn · Connect · Grow</p>
+      <h1 id="page-title">My to-do list</h1>
+      <p>Write down what you want to get done. Your tasks stay saved on this device.</p>
     </section>
 
-    <section class="section" id="about">
-      <div class="container">
-        <h2>About the Hub</h2>
-        <p>Dadaab Digital Opportunity Hub is a community learning centre designed to make digital knowledge and online opportunities accessible to everyone.</p>
-      </div>
-    </section>
+    <section class="todo-card" aria-label="To-do list application">
+      <form class="task-form" id="task-form">
+        <label class="visually-hidden" for="task-input">What do you need to do?</label>
+        <input id="task-input" name="task" type="text" maxlength="160" placeholder="For example: Practice typing for 20 minutes" autocomplete="off" required>
+        <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+      </form>
 
-    <section class="section section-muted" id="programmes">
-      <div class="container">
-        <h2>Our Programs</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Digital Skills</h3>
-            <p>Build confidence using computers, the internet, email, and essential digital tools.</p>
-          </article>
-          <article class="card">
-            <h3>Computer Training</h3>
-            <p>Learn practical computer skills for education, work, and everyday life.</p>
-          </article>
-          <article class="card">
-            <h3>Technology Opportunities</h3>
-            <p>Discover online learning, digital employment, and entrepreneurship opportunities.</p>
-          </article>
+      <div class="list-toolbar">
+        <p class="task-count" id="task-count" aria-live="polite">0 tasks left</p>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">To do</button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Get in Touch</h2>
-        <p>Interested in learning or partnering with the hub? Contact the team to find out about upcoming training.</p>
-        <a class="button button-secondary" href="mailto:hello@dadaabhub.example">Send us an email</a>
+      <ul class="task-list" id="task-list" aria-label="Your tasks"></ul>
+      <div class="empty-state" id="empty-state">
+        <span class="empty-icon" aria-hidden="true">✓</span>
+        <p id="empty-message">Your list is clear. Add a task to get started!</p>
       </div>
+
+      <div class="list-footer">
+        <p><span id="total-count">0</span> total</p>
+        <button class="clear-button" id="clear-completed" type="button" disabled>Clear completed</button>
+      </div>
+      <p class="save-note" id="save-note">Tasks are saved in this browser on this device.</p>
     </section>
+
+    <footer class="page-footer">
+      <p>Built for learning and making progress, one task at a time.</p>
+    </footer>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> Dadaab Digital Opportunity Hub</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
